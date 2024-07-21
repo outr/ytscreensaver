@@ -184,6 +184,8 @@
 
 			// If false, shows the progress across the entire screen. If true, shows only the progress within the video
 			const RelativeProgress = false;
+			// If true, uses youtube-nocookie.com instead of youtube.com
+			const NoCookie = true;
 			// Duration of each video segment to play in seconds
 			const duration = 20 * Minute;
 			// Videos to go through
@@ -219,7 +221,8 @@
 					start = totalSeconds - duration - 30
 				}
 				const player = doSwitch ? next : current;
-				player.src = `https://www.youtube.com/embed/${v['id']}?autoplay=1&mute=1&controls=0&start=${start}`;
+				const host = NoCookie ? 'www.youtube-nocookie.com' : 'www.youtube.com'
+				player.src = `https://${host}/embed/${v['id']}?autoplay=1&mute=1&controls=0&start=${start}`;
 				if (doSwitch) switching = 0;
 
 				// Update progress
