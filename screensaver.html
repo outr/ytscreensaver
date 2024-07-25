@@ -182,6 +182,8 @@
 
 			// Configuration
 
+			// If true, uses two iframes to transition between, if false, better performance, but worse transitions
+			const TwoPlayers = false;
 			// If false, shows the progress across the entire screen. If true, shows only the progress within the video
 			const RelativeProgress = false;
 			// If true, uses youtube-nocookie.com instead of youtube.com
@@ -282,7 +284,8 @@
 					lastVideo = now.getTime();
 				} else if (now.getTime() - lastVideo > duration * 1000) {
 					// Change video
-					nextVideo(true);
+					const switchPlayers = TwoPlayers;
+					nextVideo(switchPlayers);
 					lastVideo = now.getTime();
 
 					if (clock.classList.contains("topLeft")) {
