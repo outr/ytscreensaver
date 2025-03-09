@@ -192,15 +192,31 @@
 			const duration = 10 * Minute;
 			// Videos to go through
 			const videos = [
-				{"id": "kMnpcMnguC4", "hours": 5, "minutes": 2, "seconds": 15, "skip": 10},
-				{"id": "1iZ03yAiRIA", "hours": 3, "minutes": 16, "seconds": 57, "skip": 10},
-				{"id": "pb-j3svRQLI", "hours": 1, "minutes": 0, "seconds": 54, "skip": 10},
-				{"id": "RhOwyHWGqWg", "hours": 3, "minutes": 14, "seconds": 32, "skip": 10},
-				{"id": "Qg4aQUwtr5Q", "hours": 8, "minutes": 0, "seconds": 0, "skip": 10},
-				{"id": "7H7cTSml5zk", "hours": 11, "minutes": 54, "seconds": 59, "skip": 10},
-				{"id": "KCYl2eC_ShM", "hours": 3, "minutes": 3, "seconds": 41, "skip": 10},
-				{"id": "B5unCXpegAw", "hours": 8, "minutes": 0, "seconds": 0, "skip": 10},
-				{"id": "AKeUssuu3Is", "hours": 10, "minutes": 12, "seconds": 18, "skip": 10},
+				// {"id": "kMnpcMnguC4", "hours": 5, "minutes": 2, "seconds": 15, "skip": 10},
+				// {"id": "1iZ03yAiRIA", "hours": 3, "minutes": 16, "seconds": 57, "skip": 10},
+				// {"id": "pb-j3svRQLI", "hours": 1, "minutes": 0, "seconds": 54, "skip": 10},
+				// {"id": "RhOwyHWGqWg", "hours": 3, "minutes": 14, "seconds": 32, "skip": 10},
+				// {"id": "Qg4aQUwtr5Q", "hours": 8, "minutes": 0, "seconds": 0, "skip": 10},
+				// {"id": "7H7cTSml5zk", "hours": 11, "minutes": 54, "seconds": 59, "skip": 10},
+				// {"id": "KCYl2eC_ShM", "hours": 3, "minutes": 3, "seconds": 41, "skip": 10},
+				// {"id": "B5unCXpegAw", "hours": 8, "minutes": 0, "seconds": 0, "skip": 10},
+				// {"id": "AKeUssuu3Is", "hours": 10, "minutes": 12, "seconds": 18, "skip": 10},
+				{"id": "5bwvyz-VV3k", "live": true},
+				{"id": "3szkFHfr6sA", "live": true},
+				{"id": "DHUnz4dyb54", "live": true},
+				{"id": "gfe7xNLFY50", "live": true},
+				{"id": "F0GOOP82094", "live": true},
+				{"id": "z7SiAaN4ogw", "live": true},
+				{"id": "e3EP1XCH0KQ", "live": true},
+				{"id": "BSUnBPvX9K4", "live": true},
+				{"id": "xwVcBGgCtpA", "live": true},
+				{"id": "eXfpXKP6qVE", "live": true},
+				{"id": "Ihr_nwydXi0", "live": true},
+				{"id": "5e4lsEe4Vew", "live": true},
+				{"id": "2BLqhS59Elc", "live": true},
+				{"id": "edz0ux7JClE", "live": true},
+				{"id": "cmkAbDUEoyA", "live": true},
+				{"id": "--RetFIfaVw", "live": true},
 			]
 
 			let current = document.getElementById('player1');
@@ -222,9 +238,9 @@
 			function nextVideo(doSwitch) {
 				const v = videos[Math.floor(Math.random() * videos.length)];
 				const durationSeconds = duration - v['skip'];
-				const totalSeconds = (v['hours'] * Hour) + (v['minutes'] * Minute) + (v['seconds']);
+				const totalSeconds = v['live'] ? 12 * Hour : (v['hours'] * Hour) + (v['minutes'] * Minute) + (v['seconds']);
 				const blocks = totalSeconds / durationSeconds;
-				let start = Math.floor((Math.random() * blocks) * durationSeconds) + v['skip'];
+				let start = v['live'] ? 0 : Math.floor((Math.random() * blocks) * durationSeconds) + v['skip'];
 				if (start >= totalSeconds - duration - 30) {
 					start = totalSeconds - duration - 30
 				}
