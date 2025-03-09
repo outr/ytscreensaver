@@ -189,7 +189,7 @@
 			// If true, uses youtube-nocookie.com instead of youtube.com
 			const NoCookie = true;
 			// Duration of each video segment to play in seconds
-			const duration = 10 * Minute;
+			const duration = 5 * Minute;
 			// Videos to go through
 			const videos = [
 				// {"id": "kMnpcMnguC4", "hours": 5, "minutes": 2, "seconds": 15, "skip": 10},
@@ -235,8 +235,20 @@
 				updateTime();
 			}
 
+			// Shuffle the video order
+			for (let i = videos.length - 1; i > 0; i--) {
+				const j = Math.floor(Math.random() * (i + 1));
+				[videos[i], videos[j]] = [videos[j], videos[i]];
+			}
+
+			let v = 0;
+
 			function nextVideo(doSwitch) {
-				const v = videos[Math.floor(Math.random() * videos.length)];
+				// const v = videos[Math.floor(Math.random() * videos.length)];
+				v++;
+				if (v >= videos.length) {
+					v = 0;
+				}
 				const durationSeconds = duration - v['skip'];
 				const totalSeconds = v['live'] ? 12 * Hour : (v['hours'] * Hour) + (v['minutes'] * Minute) + (v['seconds']);
 				const blocks = totalSeconds / durationSeconds;
