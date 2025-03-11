@@ -241,14 +241,16 @@
 				[videos[i], videos[j]] = [videos[j], videos[i]];
 			}
 
-			let v = 0;
+			let videoIndex = 0;
 
 			function nextVideo(doSwitch) {
 				// const v = videos[Math.floor(Math.random() * videos.length)];
-				v++;
-				if (v >= videos.length) {
-					v = 0;
+				videoIndex++;
+				if (videoIndex >= videos.length) {
+					videoIndex = 0;
 				}
+				const v = videos[videoIndex];
+				console.log(`Index: ${videoIndex}, Id: ${v['id']}`);
 				const durationSeconds = duration - v['skip'];
 				const totalSeconds = v['live'] ? 12 * Hour : (v['hours'] * Hour) + (v['minutes'] * Minute) + (v['seconds']);
 				const blocks = totalSeconds / durationSeconds;
