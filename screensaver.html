@@ -140,6 +140,13 @@
 			.bottom {
 				bottom: 0;
 			}
+			#display {
+				position: absolute;
+				left: 0;
+				width: 100%;
+				color: white;
+				padding: 5px;
+			}
 			#progressContainer {
 				position: absolute;
 				left: 0;
@@ -165,10 +172,11 @@
 	<body onload="init();">
 		<iframe id="player1" class="player" src="about:blank"></iframe>
 		<iframe id="player2" class="player hidden" src="about:blank"></iframe>
-		<div id="clock" class="roboto-regular topLeft">
+		<div id="clock" class="roboto-regular topRight">
 			<div id="date"></div>
 			<div id="time"></div>
 		</div>
+		<div id="display" class="roboto-regular bottom"></div>
 		<div id="progressContainer" class="top">
 			<div id="progressBar">
 				<div id="progressAmount"></div>
@@ -217,17 +225,16 @@
 				// {"id": "edz0ux7JClE", "live": true},
 				// {"id": "cmkAbDUEoyA", "live": true}, // Hollywood Beach
 				// {"id": "--RetFIfaVw", "live": true},
-				{"id": "rnXIjl_Rzy4", "live": true},
-				{"id": "iiBTWU2FyFo", "live": true},
-				{"id": "73-EekdVVU8", "live": true},
-				{"id": "VSiQ7BLkZHw", "live": true},
-				{"id": "20gBHSDwH-E", "live": true},
-				{"id": "WKGK_hYnlGE", "live": true},
-				{"id": "cH7VBI4QQzA", "live": true},
-				{"id": "4qyZLflp-sI", "live": true},
-				{"id": "8vTmL-oD3Lo", "live": true},
-				{"id": "BTEzx-_sL0E", "live": true},
-				{"id": "1cOxuA9fwPI", "live": true}
+				{"id": "rnXIjl_Rzy4", "live": true, "title": "Times Square in 4k"},
+				{"id": "iiBTWU2FyFo", "live": true, "title": "Times Square: Duffy Square"},
+				{"id": "73-EekdVVU8", "live": true, "title": "Brooks Falls, Alaska"},
+				{"id": "VSiQ7BLkZHw", "live": true, "title": "Seaside Heights, NJ"},
+				{"id": "WKGK_hYnlGE", "live": true, "title": "London Walking Tour"},
+				{"id": "cH7VBI4QQzA", "live": true, "title": "Japan 4k"},
+				{"id": "BTEzx-_sL0E", "live": true, "title": "Live Seoul Korea"},
+				{"id": "1cOxuA9fwPI", "live": true, "title": "London Underground"},
+				{"id": "pz2WANHkY90", "live": false, "title": "Venice Italy Walking Tour", "hours": 0, "minutes": 59, "seconds": 22},
+				{"id": "2aZlTVnq2eQ", "live": false, "title": "Florence Italy Walking Tour", "hours": 4, "minutes": 58, "seconds": 8},
 			]
 
 			let current = document.getElementById('player1');
@@ -235,6 +242,7 @@
 			const clock = document.getElementById('clock');
 			const date = document.getElementById('date');
 			const time = document.getElementById('time');
+			const display = document.getElementById('display');
 			const progressContainer = document.getElementById('progressContainer');
 			const progressBar = document.getElementById('progressBar');
 			const progressAmount = document.getElementById('progressAmount');
@@ -261,6 +269,9 @@
 					videoIndex = 0;
 				}
 				const v = videos[videoIndex];
+
+				display.innerHTML = v['title'];
+
 				console.log(`Index: ${videoIndex}, Id: ${v['id']}`);
 				const durationSeconds = duration - v['skip'];
 				const totalSeconds = v['live'] ? 12 * Hour : (v['hours'] * Hour) + (v['minutes'] * Minute) + (v['seconds']);
@@ -335,12 +346,16 @@
 					} else if (clock.classList.contains("topRight")) {
 						clock.classList.remove("topRight");
 						clock.classList.add("bottomLeft");
+						display.classList.remove("bottom");
+						display.classList.add("top");
 					} else if (clock.classList.contains("bottomLeft")) {
 						clock.classList.remove("bottomLeft");
 						clock.classList.add("bottomRight");
 					} else if (clock.classList.contains("bottomRight")) {
 						clock.classList.remove("bottomRight");
 						clock.classList.add("topLeft");
+						display.classList.remove("top");
+						display.classList.add("bottom");
 					}
 				}
 
