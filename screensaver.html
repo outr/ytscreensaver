@@ -269,12 +269,16 @@
 					videoIndex = 0;
 				}
 				const v = videos[videoIndex];
+				let skip = 0;
+				if (v['skip']) {
+					skip = v['skip'];
+				}
 
 				console.log(`Index: ${videoIndex}, Id: ${v['id']}`);
-				const durationSeconds = duration - v['skip'];
+				const durationSeconds = duration - skip;
 				const totalSeconds = v['live'] ? 12 * Hour : (v['hours'] * Hour) + (v['minutes'] * Minute) + (v['seconds']);
 				const blocks = totalSeconds / durationSeconds;
-				let start = v['live'] ? 0 : Math.floor((Math.random() * blocks) * durationSeconds) + v['skip'];
+				let start = v['live'] ? 0 : Math.floor((Math.random() * blocks) * durationSeconds) + skip;
 				if (start >= totalSeconds - duration - 30) {
 					start = totalSeconds - duration - 30
 				}
