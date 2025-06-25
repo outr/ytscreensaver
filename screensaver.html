@@ -270,8 +270,6 @@
 				}
 				const v = videos[videoIndex];
 
-				display.innerHTML = v['title'];
-
 				console.log(`Index: ${videoIndex}, Id: ${v['id']}`);
 				const durationSeconds = duration - v['skip'];
 				const totalSeconds = v['live'] ? 12 * Hour : (v['hours'] * Hour) + (v['minutes'] * Minute) + (v['seconds']);
@@ -280,6 +278,7 @@
 				if (start >= totalSeconds - duration - 30) {
 					start = totalSeconds - duration - 30
 				}
+				display.innerHTML = v['title'] + ' Duration: ' + durationSeconds + ', Total: ' + totalSeconds + ', Blocks: ' + blocks + ', Start: ' + start;
 				const player = doSwitch ? next : current;
 				const host = NoCookie ? 'www.youtube-nocookie.com' : 'www.youtube.com'
 				player.src = `https://${host}/embed/${v['id']}?autoplay=1&mute=1&controls=0&start=${start}`;
