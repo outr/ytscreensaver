@@ -1,405 +1,566 @@
 <html>
-	<head>
-		<title>Testing</title>
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
-		<style>
-			.roboto-thin {
-				font-family: "Roboto", sans-serif;
-				font-weight: 100;
-				font-style: normal;
-			}
+<head>
+    <title>Testing</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <style>
+        .roboto-thin {
+            font-family: "Roboto", sans-serif;
+            font-weight: 100;
+            font-style: normal;
+        }
 
-			.roboto-light {
-				font-family: "Roboto", sans-serif;
-				font-weight: 300;
-				font-style: normal;
-			}
+        .roboto-light {
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            font-style: normal;
+        }
 
-			.roboto-regular {
-				font-family: "Roboto", sans-serif;
-				font-weight: 400;
-				font-style: normal;
-			}
+        .roboto-regular {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-style: normal;
+        }
 
-			.roboto-medium {
-				font-family: "Roboto", sans-serif;
-				font-weight: 500;
-				font-style: normal;
-			}
+        .roboto-medium {
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            font-style: normal;
+        }
 
-			.roboto-bold {
-				font-family: "Roboto", sans-serif;
-				font-weight: 700;
-				font-style: normal;
-			}
+        .roboto-bold {
+            font-family: "Roboto", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
 
-			.roboto-black {
-				font-family: "Roboto", sans-serif;
-				font-weight: 900;
-				font-style: normal;
-			}
+        .roboto-black {
+            font-family: "Roboto", sans-serif;
+            font-weight: 900;
+            font-style: normal;
+        }
 
-			.roboto-thin-italic {
-				font-family: "Roboto", sans-serif;
-				font-weight: 100;
-				font-style: italic;
-			}
+        .roboto-thin-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 100;
+            font-style: italic;
+        }
 
-			.roboto-light-italic {
-				font-family: "Roboto", sans-serif;
-				font-weight: 300;
-				font-style: italic;
-			}
+        .roboto-light-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 300;
+            font-style: italic;
+        }
 
-			.roboto-regular-italic {
-				font-family: "Roboto", sans-serif;
-				font-weight: 400;
-				font-style: italic;
-			}
+        .roboto-regular-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 400;
+            font-style: italic;
+        }
 
-			.roboto-medium-italic {
-				font-family: "Roboto", sans-serif;
-				font-weight: 500;
-				font-style: italic;
-			}
+        .roboto-medium-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            font-style: italic;
+        }
 
-			.roboto-bold-italic {
-				font-family: "Roboto", sans-serif;
-				font-weight: 700;
-				font-style: italic;
-			}
+        .roboto-bold-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 700;
+            font-style: italic;
+        }
 
-			.roboto-black-italic {
-				font-family: "Roboto", sans-serif;
-				font-weight: 900;
-				font-style: italic;
-			}
+        .roboto-black-italic {
+            font-family: "Roboto", sans-serif;
+            font-weight: 900;
+            font-style: italic;
+        }
 
-			body {
-				margin: 0 auto;
-				overflow: hidden;
-			}
-			.player {
-				overflow: hidden;
-				display: block;
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				border: 0;
-			}
-			.hidden {
-				opacity: 0;
-				display: none !important;
-			}
-			.fadeInPlayer {
-				animation: fadeIn 5s;
-			}
-			.fadeOutPlayer {
-				animation: fadeOut 5s;
-			}
-			@keyframes fadeIn {
-				0% { opacity: 0; }
-				100% { opacity: 1; }
-			}
-			@keyframes faceOut {
-				0% { opacity: 1; }
-				100% { opacity: 0; }
-			}
-			#clock {
-				position: absolute;
-				color: white;
-				text-shadow: 1px 1px 2px black;
-			}
-			#date {
-				font-size: 24px;
-			}
-			#time {
-				font-size: 36px;
-			}
-			.topLeft {
-				left: 50px;
-				top: 25px;
-			}
-			.topRight {
-				right: 50px;
-				top: 25px;
-			}
-			.bottomLeft {
-				left: 50px;
-				bottom: 25px;
-			}
-			.bottomRight {
-				right: 50px;
-				bottom: 25px;
-			}
-			.top {
-				top: 0;
-			}
-			.bottom {
-				bottom: 0;
-			}
-			#display {
-				position: absolute;
-				left: 0;
-				width: 100%;
-				color: white;
-				padding: 5px;
-			}
-			#progressContainer {
-				position: absolute;
-				left: 0;
-				width: 100%;
-				background-color: black;
-				opacity: 0.6;
-			}
-			#progressBar {
-				position: relative;
-				height: 3px;
-				background-color: gray;
-				left: 0;
-				width: 100%;
-			}
-			#progressAmount {
-				position: relative;
-				width: 5%;
-				height: 5px;
-				background-color: white;
-			}
-		</style>
-	</head>
-	<body onload="init();">
-		<iframe id="player1" class="player" src="about:blank"></iframe>
-		<iframe id="player2" class="player hidden" src="about:blank"></iframe>
-		<div id="clock" class="roboto-regular topRight">
-			<div id="date"></div>
-			<div id="time"></div>
-		</div>
-		<div id="display" class="roboto-regular bottom"></div>
-		<div id="progressContainer" class="top">
-			<div id="progressBar">
-				<div id="progressAmount"></div>
-			</div>
-		</div>
-		<script>
-			const Minute = 60;
-			const Hour = 60 * Minute;
-			const Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
-			const Days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
+        body {
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        .player {
+            overflow: hidden;
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+        .hidden {
+            opacity: 0;
+            display: none !important;
+        }
+        .fadeInPlayer {
+            animation: fadeIn 5s;
+        }
+        .fadeOutPlayer {
+            animation: fadeOut 5s;
+        }
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        @keyframes faceOut {
+            0% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+        #clock {
+            position: absolute;
+            color: white;
+            text-shadow: 1px 1px 2px black;
+        }
+        #date {
+            font-size: 24px;
+        }
+        #time {
+            font-size: 36px;
+        }
+        .topLeft {
+            left: 50px;
+            top: 25px;
+        }
+        .topRight {
+            right: 50px;
+            top: 25px;
+        }
+        .bottomLeft {
+            left: 50px;
+            bottom: 25px;
+        }
+        .bottomRight {
+            right: 50px;
+            bottom: 25px;
+        }
+        .top {
+            top: 0;
+        }
+        .bottom {
+            bottom: 0;
+        }
+        #display {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            color: white;
+            padding: 5px;
+        }
+        #progressContainer {
+            position: absolute;
+            left: 0;
+            width: 100%;
+            background-color: black;
+            opacity: 0.6;
+        }
+        #progressBar {
+            position: relative;
+            height: 3px;
+            background-color: gray;
+            left: 0;
+            width: 100%;
+        }
+        #progressAmount {
+            position: relative;
+            width: 5%;
+            height: 5px;
+            background-color: white;
+        }
+    </style>
+</head>
+<body onload="init();">
+<iframe id="player1" class="player" src="about:blank"></iframe>
+<iframe id="player2" class="player hidden" src="about:blank"></iframe>
+<div id="clock" class="roboto-regular topRight">
+    <div id="date"></div>
+    <div id="time"></div>
+</div>
+<div id="display" class="roboto-regular bottom"></div>
+<div id="progressContainer" class="top">
+    <div id="progressBar">
+        <div id="progressAmount"></div>
+    </div>
+</div>
+<script>
+    const Minute = 60;
+    const Hour = 60 * Minute;
+    const Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+    const Days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
 
-			// Configuration
+    // Configuration
 
-			// If true, uses two iframes to transition between, if false, better performance, but worse transitions
-			const TwoPlayers = true;
-			// If false, shows the progress across the entire screen. If true, shows only the progress within the video
-			const RelativeProgress = false;
-			// If true, uses youtube-nocookie.com instead of youtube.com
-			const NoCookie = true;
-			// Duration of each video segment to play in seconds
-			const duration = 5 * Minute;
-			// Videos to go through
-			const videos = [
-				// {id: "kMnpcMnguC4", "hours": 5, "minutes": 2, "seconds": 15, "skip": 10},
-				// {id: "1iZ03yAiRIA", "hours": 3, "minutes": 16, "seconds": 57, "skip": 10},
-				// {id: "pb-j3svRQLI", "hours": 1, "minutes": 0, "seconds": 54, "skip": 10},
-				// {id: "RhOwyHWGqWg", "hours": 3, "minutes": 14, "seconds": 32, "skip": 10},
-				// {id: "Qg4aQUwtr5Q", "hours": 8, "minutes": 0, "seconds": 0, "skip": 10},
-				// {id: "7H7cTSml5zk", "hours": 11, "minutes": 54, "seconds": 59, "skip": 10},
-				// {id: "KCYl2eC_ShM", "hours": 3, "minutes": 3, "seconds": 41, "skip": 10},
-				// {id: "B5unCXpegAw", "hours": 8, "minutes": 0, "seconds": 0, "skip": 10},
-				// {id: "AKeUssuu3Is", "hours": 10, "minutes": 12, "seconds": 18, "skip": 10},
-				// {id: "5bwvyz-VV3k", live: true},
-				// {id: "3szkFHfr6sA", live: true},
-				// {id: "DHUnz4dyb54", live: true},
-				// {id: "gfe7xNLFY50", live: true},
-				// {id: "F0GOOP82094", live: true},
-				// {id: "z7SiAaN4ogw", live: true},
-				// {id: "e3EP1XCH0KQ", live: true},
-				// {id: "BSUnBPvX9K4", live: true},
-				// {id: "xwVcBGgCtpA", live: true},
-				// {id: "eXfpXKP6qVE", live: true},
-				// {id: "Ihr_nwydXi0", live: true},
-				// {id: "5e4lsEe4Vew", live: true},
-				// {id: "2BLqhS59Elc", live: true},
-				// {id: "edz0ux7JClE", live: true},
-				// {id: "cmkAbDUEoyA", live: true}, // Hollywood Beach
-				// {id: "--RetFIfaVw", live: true},
-				{id: "rnXIjl_Rzy4", live: true, title: "Times Square in 4k"},
-				// {id: "iiBTWU2FyFo", live: true, title: "Times Square: Duffy Square"},
-				{id: "AQzXIeShSRo", title: "London Nightlife Walk", hours: 3, minutes: 24, seconds: 29},
-				{id: "F1RNi5GYH5g", title: "Tokyo Night Walk", hours: 1, minutes: 16, seconds: 28},
-				{id: "1aedKShR1rA", title: "Manhattan Evening Walk", hours: 3, minutes: 59, seconds: 27},
-				{id: "vj9XngP5MWY", title: "Wonders of the Planet", hours: 0, minutes: 56, seconds: 44},
-				{id: "8TuFDJDm_18", title: "Venice Beach to Santa Monica Pier", hours: 1, minutes: 31, seconds: 27},
-				{id: "HVlM7ViLGQU", title: "Miami Beach", hours: 2, minutes: 19, seconds: 0},
-				{id: "6BPuGeS6O4w", title: "Paris Night Walk", hours: 1, minutes: 44, seconds: 58},
-				{id: "MJQ6ZyBNtCk", title: "Australia Walking Tour 4k", hours: 3, minutes: 31, seconds: 35},
-				{id: "pz2WANHkY90", live: false, title: "Venice Italy Walking Tour", hours: 0, minutes: 59, seconds: 22},
-				{id: "2aZlTVnq2eQ", live: false, title: "Florence Italy Walking Tour", hours: 4, minutes: 58, seconds: 8},
-			]
+    // If true, uses two iframes to transition between, if false, better performance, but worse transitions
+    const TwoPlayers = true;
+    // If false, shows the progress across the entire screen. If true, shows only the progress within the video
+    const RelativeProgress = false;
+    // If true, uses youtube-nocookie.com instead of youtube.com
+    const NoCookie = true;
+    // Duration of each video segment to play in seconds
+    const duration = 5 * Minute;
+    // Videos to go through
+    const videos = [
+        // {id: "kMnpcMnguC4", "hours": 5, "minutes": 2, "seconds": 15, "skip": 10},
+        // {id: "1iZ03yAiRIA", "hours": 3, "minutes": 16, "seconds": 57, "skip": 10},
+        // {id: "pb-j3svRQLI", "hours": 1, "minutes": 0, "seconds": 54, "skip": 10},
+        // {id: "RhOwyHWGqWg", "hours": 3, "minutes": 14, "seconds": 32, "skip": 10},
+        // {id: "Qg4aQUwtr5Q", "hours": 8, "minutes": 0, "seconds": 0, "skip": 10},
+        // {id: "7H7cTSml5zk", "hours": 11, "minutes": 54, "seconds": 59, "skip": 10},
+        // {id: "KCYl2eC_ShM", "hours": 3, "minutes": 3, "seconds": 41, "skip": 10},
+        // {id: "B5unCXpegAw", "hours": 8, "minutes": 0, "seconds": 0, "skip": 10},
+        // {id: "AKeUssuu3Is", "hours": 10, "minutes": 12, "seconds": 18, "skip": 10},
+        // {id: "5bwvyz-VV3k", live: true},
+        // {id: "3szkFHfr6sA", live: true},
+        // {id: "DHUnz4dyb54", live: true},
+        // {id: "gfe7xNLFY50", live: true},
+        // {id: "F0GOOP82094", live: true},
+        // {id: "z7SiAaN4ogw", live: true},
+        // {id: "e3EP1XCH0KQ", live: true},
+        // {id: "BSUnBPvX9K4", live: true},
+        // {id: "xwVcBGgCtpA", live: true},
+        // {id: "eXfpXKP6qVE", live: true},
+        // {id: "Ihr_nwydXi0", live: true},
+        // {id: "5e4lsEe4Vew", live: true},
+        // {id: "2BLqhS59Elc", live: true},
+        // {id: "edz0ux7JClE", live: true},
+        // {id: "cmkAbDUEoyA", live: true}, // Hollywood Beach
+        // {id: "--RetFIfaVw", live: true},
+        {id: "rnXIjl_Rzy4", live: true, title: "Times Square in 4k"},
+        // {id: "iiBTWU2FyFo", live: true, title: "Times Square: Duffy Square"},
+        {id: "AQzXIeShSRo", title: "London Nightlife Walk", hours: 3, minutes: 24, seconds: 29},
+        {id: "F1RNi5GYH5g", title: "Tokyo Night Walk", hours: 1, minutes: 16, seconds: 28},
+        {id: "1aedKShR1rA", title: "Manhattan Evening Walk", hours: 3, minutes: 59, seconds: 27},
+        {id: "vj9XngP5MWY", title: "Wonders of the Planet", hours: 0, minutes: 56, seconds: 44},
+        {id: "8TuFDJDm_18", title: "Venice Beach to Santa Monica Pier", hours: 1, minutes: 31, seconds: 27},
+        {id: "HVlM7ViLGQU", title: "Miami Beach", hours: 2, minutes: 19, seconds: 0},
+        {id: "6BPuGeS6O4w", title: "Paris Night Walk", hours: 1, minutes: 44, seconds: 58},
+        {id: "MJQ6ZyBNtCk", title: "Australia Walking Tour 4k", hours: 3, minutes: 31, seconds: 35},
+        {id: "pz2WANHkY90", live: false, title: "Venice Italy Walking Tour", hours: 0, minutes: 59, seconds: 22},
+        {id: "2aZlTVnq2eQ", live: false, title: "Florence Italy Walking Tour", hours: 4, minutes: 58, seconds: 8},
+        {id: "AKeUssuu3Is", live: false, title: "Fantastic Views of Nature 4k", hour: 10, minutes: 12, seconds: 18},
+        {id: "G1hKzCkywM8", live: false, title: "Beautiful Places Aerial Views", hour: 6, minutes: 10, seconds: 12},
+        {id: "KLuTLF3x9sA", live: false, title: "Norway 4k", hour: 11, minutes: 59, seconds: 13},
+        {id: "3xPkwNu2o8g", live: false, title: "Splendors of Nature", hour: 12, minutes: 0, seconds: 43},
+        {id: "p1w5Wop_ARI", live: false, title: "A Day in Nature", hour: 7, minutes: 55, seconds: 35},
+        {id: "BHACKCNDMW8", live: false, title: "Amazing Nature Scenery", hour: 3, minutes: 0, seconds: 8},
+    ]
 
-			let current = document.getElementById('player1');
-			let next = document.getElementById('player2');
-			const clock = document.getElementById('clock');
-			const date = document.getElementById('date');
-			const time = document.getElementById('time');
-			const display = document.getElementById('display');
-			const progressContainer = document.getElementById('progressContainer');
-			const progressBar = document.getElementById('progressBar');
-			const progressAmount = document.getElementById('progressAmount');
+    let current = document.getElementById('player1');
+    let next = document.getElementById('player2');
+    const clock = document.getElementById('clock');
+    const date = document.getElementById('date');
+    const time = document.getElementById('time');
+    const display = document.getElementById('display');
+    const progressContainer = document.getElementById('progressContainer');
+    const progressBar = document.getElementById('progressBar');
+    const progressAmount = document.getElementById('progressAmount');
 
-			let lastVideo = -1;
-			let switching = -1;
 
-			function init() {
-				updateTime();
-			}
+    // ===== Persistent Segment Queue (additions; non-destructive) =====
+    const STORAGE_KEY_QUEUE   = "screensaver.queue.v1";
+    const STORAGE_KEY_INDEX   = "screensaver.index.v1";
+    const STORAGE_KEY_CONFIG  = "screensaver.config.v1";
 
-			// Shuffle the video order
-			for (let i = videos.length - 1; i > 0; i--) {
-				const j = Math.floor(Math.random() * (i + 1));
-				[videos[i], videos[j]] = [videos[j], videos[i]];
-			}
+    function normalizeList(list) {
+        return list.map(v => {
+            const hours = v.hours ?? v.hour ?? 0;
+            const minutes = v.minutes ?? 0;
+            const seconds = v.seconds ?? 0;
+            const skip = v.skip ?? 0;
+            return { id: v.id, title: v.title ?? v.id, hours, minutes, seconds, skip, live: !!v.live };
+        });
+    }
 
-			let videoIndex = 0;
+    function secondsOf(v) {
+        if (v.live) return 12 * Hour;
+        return (v.hours * Hour) + (v.minutes * Minute) + v.seconds;
+    }
 
-			function nextVideo(doSwitch) {
-				// const v = videos[Math.floor(Math.random() * videos.length)];
-				videoIndex++;
-				if (videoIndex >= videos.length) {
-					videoIndex = 0;
-				}
-				const v = videos[videoIndex];
-				let skip = v['skip'] ? v['skip'] : 0;
-				let live = !!v['live'];
+    function shuffleInPlace(a) {
+        for (let i = a.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [a[i], a[j]] = [a[j], a[i]];
+        }
+        return a;
+    }
 
-				console.log(`Index: ${videoIndex}, Id: ${v['id']}`);
-				const durationSeconds = duration - skip;
-				const totalSeconds = v['live'] ? 12 * Hour : (v['hours'] * Hour) + (v['minutes'] * Minute) + (v['seconds']);
-				const blocks = totalSeconds / durationSeconds;
-				let start = live ? 0 : Math.floor((Math.random() * blocks) * durationSeconds) + skip;
-				if (start >= totalSeconds - duration - 30) {
-					start = totalSeconds - duration - 30
-				}
+    function currentConfigSignature(videos, segmentSec) {
+        const deterministic = normalizeList(videos).filter(v => !v.live)
+            .map(v => ({id:v.id, title:v.title, hours:v.hours, minutes:v.minutes, seconds:v.seconds, skip:v.skip}));
+        return JSON.stringify({ duration: segmentSec, videos: deterministic });
+    }
 
-				let s = v['title'];
-				if (live) {
-					s += ' Live';
-				} else {
-					let begin = Math.round(start / 60);
-					let length = Math.round(totalSeconds / 60);
-					s += ', Begin: ' + begin + ', Length: ' + length;
-				}
-				// display.innerHTML = v['title'] + ', Live: ' + live + ', Skip: ' + skip + ', Duration: ' + durationSeconds + ', Total: ' + totalSeconds + ', Blocks: ' + blocks + ', Start: ' + start;
-				display.innerHTML = s;
-				const player = doSwitch ? next : current;
-				const host = NoCookie ? 'www.youtube-nocookie.com' : 'www.youtube.com'
-				player.src = `https://${host}/embed/${v['id']}?autoplay=1&mute=1&controls=0&start=${start}`;
-				if (doSwitch) switching = 0;
+    function buildSegments(videos, segmentSec) {
+        const segments = [];
+        const safety = 30;
+        const norm = normalizeList(videos);
+        for (const v of norm) {
+            if (v.live) continue;
+            const total = secondsOf(v);
+            const skip = v.skip || 0;
+            if (total <= skip + segmentSec + safety) {
+                segments.push({ id: v.id, title: v.title, start: skip, total, segment: segmentSec });
+                continue;
+            }
+            for (let start = skip; start <= total - segmentSec - safety; start += segmentSec) {
+                segments.push({ id: v.id, title: v.title, start, total, segment: segmentSec });
+            }
+            const finalStart = Math.max(skip, total - segmentSec - safety);
+            if (!segments.some(s => s.id === v.id && s.start === finalStart)) {
+                segments.push({ id: v.id, title: v.title, start: finalStart, total, segment: segmentSec });
+            }
+        }
+        return segments;
+    }
 
-				// Update progress
-				if (RelativeProgress) {
-					const startPercentage = (start / totalSeconds) * 100;
-					const durationPercentage = (duration / totalSeconds) * 100;
-					progressBar.style.left = `${startPercentage}%`;
-					progressBar.style.width = `${durationPercentage}%`;
-				}
-				progressAmount.style.width = '0';
-				if (progressContainer.classList.contains('top')) {
-					progressContainer.classList.add('bottom');
-					progressContainer.classList.remove('top');
-				} else {
-					progressContainer.classList.add('top');
-					progressContainer.classList.remove('bottom');
-				}
-			}
+    function loadQueue() {
+        const q = localStorage.getItem(STORAGE_KEY_QUEUE);
+        const i = localStorage.getItem(STORAGE_KEY_INDEX);
+        const c = localStorage.getItem(STORAGE_KEY_CONFIG);
+        return {
+            queue: q ? JSON.parse(q) : null,
+            index: i ? parseInt(i, 10) : 0,
+            config: c || null,
+        };
+    }
 
-			function updateTime() {
-				const now = new Date();
+    function saveQueue(queue, index, configSig) {
+        localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(queue));
+        localStorage.setItem(STORAGE_KEY_INDEX, String(index));
+        localStorage.setItem(STORAGE_KEY_CONFIG, configSig);
+    }
 
-				// Update progress
-				const progress = now.getTime() - lastVideo;
-				const progressPercentage = (progress / (duration * 1000)) * 100;
-				progressAmount.style.width = `${progressPercentage}%`;
+    function ensureQueue(videos, segmentSec) {
+        const sig = currentConfigSignature(videos, segmentSec);
+        const { queue, index, config } = loadQueue();
+        if (!queue || !config || config !== sig) {
+            const segments = buildSegments(videos, segmentSec);
+            shuffleInPlace(segments);
+            saveQueue(segments, 0, sig);
+            return { queue: segments, index: 0, config: sig };
+        } else {
+            return { queue, index: Math.min(index, queue.length - 1), config: sig };
+        }
+    }
 
-				if (switching === 5) {
-					// Start transitioning
-					current.classList.add('fadeOutPlayer');
-					next.classList.add('fadeInPlayer');
-					next.classList.remove('hidden');
-				} else if (switching === 11) {
-					// Finish transitioning
-					current.src = 'about:blank';
-					current.classList.add('hidden');
-					current.classList.remove('fadeOutPlayer');
-					next.classList.remove('fadeInPlayer');
+    function advanceIndex(index, queueLength) {
+        const next = index + 1;
+        if (next < queueLength) return next;
+        const q = JSON.parse(localStorage.getItem(STORAGE_KEY_QUEUE));
+        shuffleInPlace(q);
+        localStorage.setItem(STORAGE_KEY_QUEUE, JSON.stringify(q));
+        return 0;
+    }
 
-					let p = next;
-					next = current;
-					current = p;
-					switching = -1;
-				}
-				if (switching !== -1) {
-					switching += 1;
-				}
+    // Initialize STATE with a persisted queue (built from current videos + duration)
+    let STATE = ensureQueue(videos, duration);
+    let lastVideo = -1;
+    let switching = -1;
 
-				if (lastVideo === -1) {
-					nextVideo(false);
-					lastVideo = now.getTime();
-				} else if (now.getTime() - lastVideo > duration * 1000) {
-					// Change video
-					const switchPlayers = TwoPlayers;
-					nextVideo(switchPlayers);
-					lastVideo = now.getTime();
+    function init() {
+        updateTime();
+    }
 
-					if (clock.classList.contains("topLeft")) {
-						clock.classList.remove("topLeft");
-						clock.classList.add("topRight");
-					} else if (clock.classList.contains("topRight")) {
-						clock.classList.remove("topRight");
-						clock.classList.add("bottomLeft");
-						display.classList.remove("bottom");
-						display.classList.add("top");
-					} else if (clock.classList.contains("bottomLeft")) {
-						clock.classList.remove("bottomLeft");
-						clock.classList.add("bottomRight");
-					} else if (clock.classList.contains("bottomRight")) {
-						clock.classList.remove("bottomRight");
-						clock.classList.add("topLeft");
-						display.classList.remove("top");
-						display.classList.add("bottom");
-					}
-				}
+    // Shuffle the video order
+    for (let i = videos.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [videos[i], videos[j]] = [videos[j], videos[i]];
+    }
 
-				now.getDay()
+    let videoIndex = 0;
 
-				const day = Days[now.getDay()];
-				const month = Months[now.getMonth()];
-				const dayInMonth = now.getDate();
-				const year = now.getFullYear();
+    function nextVideo(doSwitch) {
+        // -- Queue-backed deterministic segment rotation --
+        // Preserve old random logic below (commented) for reference.
 
-				let h = now.getHours();
-				let m = now.getMinutes();
-				let s = now.getSeconds();
-				let amPm = 'am';
-				if (h > 12) {
-					h -= 12;
-					amPm = 'pm';
-				} else if (h === 0) {
-					h = 12;
-				}
-				m = checkTime(m);
-				s = checkTime(s);
-				date.innerHTML = `${day}, ${month} ${dayInMonth}, ${year}`;
-				time.innerHTML =  h + ":" + m + ":" + s + ' ' + amPm;
-				setTimeout(updateTime, 1000);
-			}
+        // Ensure queue is up to date in case videos or duration changed
+        const currentSig = currentConfigSignature(videos, duration);
+        if (STATE.config !== currentSig) {
+            STATE = ensureQueue(videos, duration);
+        }
 
-			function checkTime(i) {
-				if (i < 10) {i = "0" + i}  // add zero in front of numbers < 10
-				return i;
-			}
-		</script>
-	</body>
+        const q = STATE.queue;
+        if (!q || q.length === 0) {
+            display.innerHTML = 'No segments available.';
+            return;
+        }
+        const seg = q[STATE.index];
+
+        const host = NoCookie ? 'www.youtube-nocookie.com' : 'www.youtube.com';
+        const url = `https://${host}/embed/${seg.id}?autoplay=1&mute=1&controls=0&start=${Math.max(0, Math.floor(seg.start))}`;
+
+        const player = doSwitch ? next : current;
+        player.src = url;
+
+        const beginMin = Math.round(seg.start / 60);
+        const lengthMin = Math.round(seg.total / 60);
+        display.innerHTML = `${seg.title || seg.id}, Begin: ${beginMin}, Length: ${lengthMin}`;
+
+        // Update progress UI
+        if (RelativeProgress) {
+            const startPct = (seg.start / seg.total) * 100;
+            const durPct = (duration / seg.total) * 100;
+            progressBar.style.left = `${startPct}%`;
+            progressBar.style.width = `${durPct}%`;
+        } else {
+            progressBar.style.left = `0`;
+            progressBar.style.width = `100%`;
+        }
+        progressAmount.style.width = '0';
+
+        // Flip progress bar anchor each time (top/bottom)
+        if (progressContainer.classList.contains('top')) {
+            progressContainer.classList.add('bottom');
+            progressContainer.classList.remove('top');
+        } else {
+            progressContainer.classList.add('top');
+            progressContainer.classList.remove('bottom');
+        }
+
+        if (doSwitch) switching = 0;
+
+        // Advance pointer and persist
+        STATE.index = advanceIndex(STATE.index, q.length);
+        saveQueue(STATE.queue, STATE.index, STATE.config);
+
+        /* ---- Previous random-segment logic (preserved) ----
+
+        // const v = videos[Math.floor(Math.random() * videos.length)];
+        videoIndex++;
+        if (videoIndex >= videos.length) {
+            videoIndex = 0;
+        }
+        const v = videos[videoIndex];
+        let skip = v['skip'] ? v['skip'] : 0;
+        let live = !!v['live'];
+
+        console.log(`Index: ${videoIndex}, Id: ${v['id']}`);
+        const durationSeconds = duration - skip;
+        const totalSeconds = v['live'] ? 12 * Hour : (v['hours'] * Hour) + (v['minutes'] * Minute) + (v['seconds']);
+        const blocks = totalSeconds / durationSeconds;
+        let start = live ? 0 : Math.floor((Math.random() * blocks) * durationSeconds) + skip;
+        if (start >= totalSeconds - duration - 30) {
+            start = totalSeconds - duration - 30
+        }
+
+        let s = v['title'];
+        if (live) {
+            s += ' Live';
+        } else {
+            let begin = Math.round(start / 60);
+            let length = Math.round(totalSeconds / 60);
+            s += ', Begin: ' + begin + ', Length: ' + length;
+        }
+        // display.innerHTML = v['title'] + ', Live: ' + live + ', Skip: ' + skip + ', Duration: ' + durationSeconds + ', Total: ' + totalSeconds + ', Blocks: ' + blocks + ', Start: ' + start;
+        display.innerHTML = s;
+        const player = doSwitch ? next : current;
+        const host = NoCookie ? 'www.youtube-nocookie.com' : 'www.youtube.com'
+        player.src = `https://${host}/embed/${v['id']}?autoplay=1&mute=1&controls=0&start=${start}`;
+        if (doSwitch) switching = 0;
+
+        // Update progress
+        if (RelativeProgress) {
+            const startPercentage = (start / totalSeconds) * 100;
+            const durationPercentage = (duration / totalSeconds) * 100;
+            progressBar.style.left = `${startPercentage}%`;
+            progressBar.style.width = `${durationPercentage}%`;
+        }
+        progressAmount.style.width = '0';
+        if (progressContainer.classList.contains('top')) {
+            progressContainer.classList.add('bottom');
+            progressContainer.classList.remove('top');
+        } else {
+            progressContainer.classList.add('top');
+            progressContainer.classList.remove('bottom');
+        }
+        ---- End previous logic ---- */
+    }
+
+    function updateTime() {
+        const now = new Date();
+
+        // Update progress
+        const progress = now.getTime() - lastVideo;
+        const progressPercentage = (progress / (duration * 1000)) * 100;
+        progressAmount.style.width = `${progressPercentage}%`;
+
+        if (switching === 5) {
+            // Start transitioning
+            current.classList.add('fadeOutPlayer');
+            next.classList.add('fadeInPlayer');
+            next.classList.remove('hidden');
+        } else if (switching === 11) {
+            // Finish transitioning
+            current.src = 'about:blank';
+            current.classList.add('hidden');
+            current.classList.remove('fadeOutPlayer');
+            next.classList.remove('fadeInPlayer');
+
+            let p = next;
+            next = current;
+            current = p;
+            switching = -1;
+        }
+        if (switching !== -1) {
+            switching += 1;
+        }
+
+        if (lastVideo === -1) {
+            nextVideo(false);
+            lastVideo = now.getTime();
+        } else if (now.getTime() - lastVideo > duration * 1000) {
+            // Change video
+            const switchPlayers = TwoPlayers;
+            nextVideo(switchPlayers);
+            lastVideo = now.getTime();
+
+            if (clock.classList.contains("topLeft")) {
+                clock.classList.remove("topLeft");
+                clock.classList.add("topRight");
+            } else if (clock.classList.contains("topRight")) {
+                clock.classList.remove("topRight");
+                clock.classList.add("bottomLeft");
+                display.classList.remove("bottom");
+                display.classList.add("top");
+            } else if (clock.classList.contains("bottomLeft")) {
+                clock.classList.remove("bottomLeft");
+                clock.classList.add("bottomRight");
+            } else if (clock.classList.contains("bottomRight")) {
+                clock.classList.remove("bottomRight");
+                clock.classList.add("topLeft");
+                display.classList.remove("top");
+                display.classList.add("bottom");
+            }
+        }
+
+        now.getDay()
+
+        const day = Days[now.getDay()];
+        const month = Months[now.getMonth()];
+        const dayInMonth = now.getDate();
+        const year = now.getFullYear();
+
+        let h = now.getHours();
+        let m = now.getMinutes();
+        let s = now.getSeconds();
+        let amPm = 'am';
+        if (h > 12) {
+            h -= 12;
+            amPm = 'pm';
+        } else if (h === 0) {
+            h = 12;
+        }
+        m = checkTime(m);
+        s = checkTime(s);
+        date.innerHTML = `${day}, ${month} ${dayInMonth}, ${year}`;
+        time.innerHTML =  h + ":" + m + ":" + s + ' ' + amPm;
+        setTimeout(updateTime, 1000);
+    }
+
+    function checkTime(i) {
+        if (i < 10) {i = "0" + i}  // add zero in front of numbers < 10
+        return i;
+    }
+</script>
+</body>
 </html>
